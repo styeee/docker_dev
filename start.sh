@@ -14,6 +14,7 @@ do
 	echo "7 show ip"
 	echo "8 run client"
 	echo "9 stop all"
+	echo "10 employ"
 	echo "ctrl+c for stop"
 	
 	read i
@@ -28,6 +29,7 @@ do
 		7) hostname -I;;
 		8) echo "port:" && read port && ncat 127.0.0.1 $port;;
 		9) sudo docker stop $(sudo docker ps -q);;
+		10) read src_p && rm -rf src/* && rm -rf build/* && rm -rf work/* && cp -r $src_p src/;;
 		*) clear
 	esac
 done
