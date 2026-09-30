@@ -2,4 +2,4 @@ ARG BASE=debian:12-slim
 FROM $BASE
 RUN apt-get update && apt-get install -y ncat luajit
 WORKDIR /work
-CMD ["sh","-c","ncat -l $port --sh-exec 'luajit -i'"]
+CMD ["sh","-c","ncat -l $port --sh-exec \"[ -f init.lua ] && luajit -i init.lua || luajit -i\""]
