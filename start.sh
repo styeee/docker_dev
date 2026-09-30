@@ -1,3 +1,5 @@
+[ -d "$1" ] && cp -r "$1"/* src/
+
 clear
 
 while true
